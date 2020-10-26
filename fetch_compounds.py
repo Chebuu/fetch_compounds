@@ -3,4 +3,4 @@ def fetch_compounds(cids, batch=100):
     def gen(itr):
         for i in range(0,len(itr),batch):
             yield itr[i:min(i+batch,len(itr))]
-    return sum([pc.get_compounds(q) for q in gen(cids)],[])
+    return sum([pc.get_compounds(q) for q in gen(list(cids))],[])
